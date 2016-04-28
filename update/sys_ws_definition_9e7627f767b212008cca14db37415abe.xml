@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_definition">
+    <sys_ws_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_uri>/api/sn_k16_install/setup</base_uri>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_version>No active default version</default_version>
+        <doc_link/>
+        <enforce_acl/>
+        <is_versioned>false</is_versioned>
+        <name>Setup</name>
+        <namespace>sn_k16_install</namespace>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <service_id>setup</service_id>
+        <short_description/>
+        <sys_class_name>sys_ws_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-04-22 14:57:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9e7627f767b212008cca14db37415abe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Setup</sys_name>
+        <sys_package display_value="K16-CC-19CD09 Installation Checklist" source="sn_k16_install">0968407767b212008cca14db37415aa1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="K16-CC-19CD09 Installation Checklist">0968407767b212008cca14db37415aa1</sys_scope>
+        <sys_update_name>sys_ws_definition_9e7627f767b212008cca14db37415abe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-04-22 14:57:46</sys_updated_on>
+    </sys_ws_definition>
+</record_update>
