@@ -16,26 +16,48 @@ SetupIntrospector.prototype = {
 		var result = {};
 		result.integrationUsers = this.getIntegrationUsers();
 		result.plugins = this.getRequiredPluginsStatus();
+		result.hasEvents = this.getEventsStatus();
 		return result;
 	},
 	
 	getIntegrationUsers: function(){
 		var result = {};
-		var role = "sn_ak16_creatorcon.integration";
+		var role = "sn_k16_install.integration";
 		result.role = role;
 		result.users = [];
-		
-		
+		var gr = new GlideRecord("sys_user_has_role");
+		gr.addQuery("role.name", role);
+		gr.addQuery("state", "active")
+		gr.query();
+		while(gr.next())
+			result.users.push({sys_id: gr.user.sys_id.toString(), username: gr.user.user_name.toString()});
+
 		return result;
 	},
 	
 	getRequiredPluginsStatus: function(){
 		
 		var plugins = [];
+		//This allows us to use non-registered dependencies to show in the list
+		var requiredPlugins = [{id: "com.glideapp.itom.snac", name: "Event Management"}];
 		
+		for(var i=0; i < requiredPlugins.length; i++){
+			var ret = GlidePluginManager.isActive(requiredPlugins[i].id);
+			plugins.push({name: requiredPlugins[i].name, id: requiredPlugins[i].id, status: ret});
+		}
 		
 		
 		return plugins;
+	},
+	
+	getEventsStatus: function(){
+		var source = "MyApp";
+		var grEvent = new GlideRecord("em_event");
+		grEvent.addQuery("source", source);
+		grEvent.query();
+		if(grEvent.hasNext())
+			return true;
+		return false;
 	},
 
     type: 'SetupIntrospector'
@@ -45,7 +67,7 @@ SetupIntrospector.prototype = {
         <sys_created_on>2016-04-25 18:48:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>dfe73fb0670312008cca14db37415a80</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>SetupIntrospector</sys_name>
         <sys_package display_value="K16-CC-19CD09 Installation Checklist" source="sn_k16_install">0968407767b212008cca14db37415aa1</sys_package>
         <sys_policy>read</sys_policy>
@@ -53,6 +75,6 @@ SetupIntrospector.prototype = {
         <sys_scope display_value="K16-CC-19CD09 Installation Checklist">0968407767b212008cca14db37415aa1</sys_scope>
         <sys_update_name>sys_script_include_dfe73fb0670312008cca14db37415a80</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2016-04-25 18:48:49</sys_updated_on>
+        <sys_updated_on>2016-05-05 13:14:49</sys_updated_on>
     </sys_script_include>
 </record_update>
