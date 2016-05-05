@@ -121,7 +121,7 @@
 	</td>
 	<td><div ng-class="{'incomplete': !plugin.status}">{{plugin.status}}</div></td>
 </tr>
-									<tr ng-class="{'incomplete': hasEvents}">
+									<tr ng-class="{'incomplete': !hasEvents}">
 										<td>Are events with "MyApp" in the source field being created in the Event table (em_event)?</td>
 										<td>{{hasEvents === true ? "Yes" : "No"}}</td>
 									</tr>
@@ -155,7 +155,7 @@
         <sys_created_on>2016-04-21 22:48:45</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>45b8447767b212008cca14db37415a25</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>setup</sys_name>
         <sys_package display_value="K16-CC-19CD09 Installation Checklist" source="sn_k16_install">0968407767b212008cca14db37415aa1</sys_package>
         <sys_policy/>
@@ -163,6 +163,6 @@
         <sys_scope display_value="K16-CC-19CD09 Installation Checklist">0968407767b212008cca14db37415aa1</sys_scope>
         <sys_update_name>sys_ui_page_45b8447767b212008cca14db37415a25</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2016-05-03 19:19:53</sys_updated_on>
+        <sys_updated_on>2016-05-05 15:16:32</sys_updated_on>
     </sys_ui_page>
 </record_update>
